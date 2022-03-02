@@ -7,7 +7,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended : true}));
 app.use(express.static(path.join(__dirname, '../build')));
 
-/* ------------------------------ delare routes ----------------------------- */
+/* ----------------------------- declare routes ----------------------------- */
 
 const apiRouter = require(path.join(__dirname, 'routes/api.js'));
 
