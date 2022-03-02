@@ -1,5 +1,6 @@
 const pg = require  ('../models/passwordModels.js')
 const tables = require('../../client/constants/tableNames');
+
 const passwordController = {
   newPassword : {
     pwid: 1,

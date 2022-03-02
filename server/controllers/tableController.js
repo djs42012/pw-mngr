@@ -1,8 +1,6 @@
 const pg = require  ('../models/passwordModels.js')
 const tableController = {};
 
-
-
 tableController.getTables = (req, res, next) => {
     console.log('at getTables controller');
     pg.query(
