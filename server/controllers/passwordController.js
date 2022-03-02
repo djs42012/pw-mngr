@@ -26,7 +26,7 @@ passwordController.createPassword = (req, res, next) => {
     .catch(error => next(error));
   };
 
-passwordController.getPassword = (req, res, next) => {
+passwordController.getPasswords = (req, res, next) => {
   pg.query(
     `SELECT * FROM ${tables.primary}`
   )
