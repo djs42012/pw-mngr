@@ -19,4 +19,8 @@ router.get('/passwords', passwordController.getPasswords, (rew,res) => {
     return res.status(200).json(res.locals.passwords);
 });
 
+router.delete('passwords', passwordController.deletePassword, (req, res) => {
+
+})
+
 module.exports = router;

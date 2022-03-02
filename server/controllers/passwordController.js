@@ -38,6 +38,10 @@ passwordController.getPasswords = (req, res, next) => {
 
 }
 
+passwordController.deletePassword = (req, res, next) => {
+  
+}
+
 
 
 
