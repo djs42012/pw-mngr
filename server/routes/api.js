@@ -8,13 +8,15 @@ router.get('/', tableController.getTables, (req, res) => {
     console.log('at table router');
     return res.status(200).json(res.locals.tables);
 });
+
 router.post('/passwords', passwordController.createPassword, (req, res) => {
     console.log ('at create password router');
     return res.status(200).json(res.locals.passwords);
 });
+
 router.get('/passwords', passwordController.getPasswords, (rew,res) => {
     console.log('at get passwords router');
     return res.status(200).json(res.locals.passwords);
-})
+});
 
 module.exports = router;
