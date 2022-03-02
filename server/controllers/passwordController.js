@@ -23,11 +23,18 @@ passwordController.createPassword = (req, res, next) => {
         res.locals.passwords = response.rows;
         return next();
       })
-    .catch((error) => {console.log(error);});
+    .catch(error => next(error));
   };
 
 passwordController.getPassword = (req, res, next) => {
-  const query = `SELECT * FROM ${tables.primary}`;
+  pg.query(
+    `SELECT * FROM ${tables.primary}`
+  )
+  .then(response =>{
+    res.locals.passwords = response.rows;
+    return next();
+  })
+  .catch(error => next(error));
 
 }
 

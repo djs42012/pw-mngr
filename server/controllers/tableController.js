@@ -11,7 +11,7 @@ tableController.getTables = (req, res, next) => {
         res.locals.tables = response.rows;
         return next();
       })
-      .catch((error) => {console.log(error);});
+      .catch(error => next(error));
   };
 
 
