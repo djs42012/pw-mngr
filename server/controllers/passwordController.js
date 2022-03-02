@@ -1,5 +1,5 @@
 const pg = require  ('../models/passwordModels.js')
-const tables = require('../../client/constants/tableNames');
+const tables = require('../constants/tableNames');
 
 const passwordController = {
   newPassword : {
@@ -39,7 +39,7 @@ passwordController.getPasswords = (req, res, next) => {
 }
 
 passwordController.deletePassword = (req, res, next) => {
-  
+
 }
 
 
