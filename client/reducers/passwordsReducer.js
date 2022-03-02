@@ -4,7 +4,7 @@ const initialState = {
   
   };
   
-  const assetsReducer = (state = initialState, action) => {
+  const passwordsReducer = (state = initialState, action) => {
     let someVariable;
   
     switch (action.type) {
@@ -26,4 +26,4 @@ const initialState = {
     }
   };
   
-  export default assetsReducer;
+  export default passwordsReducer;

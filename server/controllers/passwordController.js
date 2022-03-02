@@ -1,12 +1,12 @@
-const db = require  ('../models/assetModels.js')
+const db = require  ('../models/passwordModels.js')
 
-const assetController = {};
+const passwordController = {};
 
 
-assetController.getAssets = (req, res, next) => {
-    console.log('at getAssets controller');
+passwordController.getPasswords = (req, res, next) => {
+    console.log('at getPasswords controller');
     const query = 'SELECT * FROM passwords;';
-    const assets = new Promise((resolve, reject) => {
+    const passwords = new Promise((resolve, reject) => {
       const result = db.query(query);
       return resolve(result);
     })
@@ -20,4 +20,4 @@ assetController.getAssets = (req, res, next) => {
 
 
 
-module.exports = assetController;
+module.exports = passwordController;

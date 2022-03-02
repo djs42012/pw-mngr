@@ -1,9 +1,9 @@
 import React from 'react';
 import LabeledText from './LabeledText.jsx';
 
-const Asset= () => (
-  <div className="assetBox">
-    <h3>Asset</h3>
+const Password= () => (
+  <div className="passwordBox">
+    <h3>Password</h3>
     <div>
       <LabeledText label="Prop 1" text='text' />
       <LabeledText label="Prop 2" text='text' />
@@ -16,4 +16,4 @@ const Asset= () => (
   </div>
 );
 
-export default Asset;
+export default Password;

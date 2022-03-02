@@ -1,7 +1,7 @@
  import { combineReducers } from 'redux';
- import assetsReducer from './assetsReducer.js';
+ import passwordsReducer from './passwordsReducer.js';
  const reducers = combineReducers({
-  assets: assetsReducer,
+  passwords: passwordsReducer,
  })
  export default reducers;
  

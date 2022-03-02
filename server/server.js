@@ -10,7 +10,7 @@ app.use(express.static(path.join(__dirname, '../build')));
 const apiRouter = require(path.join(__dirname, 'routes/api.js'));
 
 app.use('/api', apiRouter);
-app.all('*', (req, res) => {
+app.use((req, res) => {
   console.log('Page not found');
   return res.status(404).send('Page not found. Click <a href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ">here</a> for more information.')
 });

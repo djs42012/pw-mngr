@@ -1,8 +1,8 @@
 import React from 'react';
 
-const AssetCreator = () => (
+const PasswordCreator = () => (
   <div>
-    <h4>Asset Creator</h4>
+    <h4>Password Creator</h4>
     <div>
       <form onSubmit={console.log('you clicked me')}>
         <input
@@ -15,4 +15,4 @@ const AssetCreator = () => (
   </div>
 );
 
-export default AssetCreator;
+export default PasswordCreator;
