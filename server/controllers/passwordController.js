@@ -13,7 +13,6 @@ const passwordController = {
   },
 };
 
-
 passwordController.createPassword = (req, res, next) => {
     passwordController.newPassword.pwid = Math.floor(Math.random() * 1000);
     let n = passwordController.newPassword;;
