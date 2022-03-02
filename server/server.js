@@ -8,12 +8,15 @@ app.use(express.urlencoded({extended : true}));
 app.use(express.static(path.join(__dirname, '../build')));
 
 const apiRouter = require(path.join(__dirname, 'routes/api.js'));
+
 app.use('/api', apiRouter);
+
 app.use((req, res) => {
   console.log('Page not found');
-  return res.status(404).send('Page not found. Click <a href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ">here</a> for more information.')
-});
+  return res.status(404).send('Page not found. Click <a href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ">here</a> for more information.')});
+
 app.use(defaultErrorHandler);
+
 function defaultErrorHandler(err, req, res, next){
   const defaultErr = 
   {

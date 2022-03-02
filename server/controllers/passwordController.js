@@ -1,5 +1,5 @@
-const db = require  ('../models/passwordModels.js')
-
+const pg = require  ('../models/passwordModels.js')
+const tables = require('../../client/constants/tableNames');
 const passwordController = {
   newPassword : {
     pwid: 1,
@@ -13,22 +13,25 @@ const passwordController = {
 };
 
 
-
 passwordController.createPassword = (req, res, next) => {
     passwordController.newPassword.pwid = Math.floor(Math.random() * 1000);
     let n = passwordController.newPassword;;
-    const query = `INSERT INTO passwords (pwid, account, username, alias, password, uri, notes) VALUES (${n.pwid}, '${n.account}', '${n.username}', '${n.alias}', '${n.password}', '${n.uri}', '${n.notes}') RETURNING *;`;
-    const newPassword = new Promise((resolve, reject) => {
-      const result = db.query(query);
-      return resolve(result);
-    })
-      .then((data) =>{
-        //console.log(data);
-        res.locals.passwords = data.rows;
+    pg.query(
+      `INSERT INTO passwords (pwid, account, username, alias, password, uri, notes) VALUES (${n.pwid}, '${n.account}', '${n.username}', '${n.alias}', '${n.password}', '${n.uri}', '${n.notes}') RETURNING *;`
+    )
+    .then(response => {
+        res.locals.passwords = response.rows;
         return next();
       })
-      .catch((error) => {console.log(error);});
+    .catch((error) => {console.log(error);});
   };
+
+passwordController.getPassword = (req, res, next) => {
+  const query = `SELECT * FROM ${tables.primary}`;
+
+}
+
+
 
 
 
