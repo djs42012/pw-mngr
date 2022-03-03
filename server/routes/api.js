@@ -29,4 +29,9 @@ router.put('/:id', passwordController.updatePassword, (req, res) => {
     return res.status(200).json(res.locals.passwords);
 });
 
+router.get('/:id', passwordController.getPassword, (req, res) => {
+    console.log('at get password router');
+    return res.status(200).json(res.locals.passwords);
+});
+
 module.exports = router;

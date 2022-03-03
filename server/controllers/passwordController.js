@@ -52,6 +52,18 @@ passwordController.updatePassword = (req, res, next) => {
   .catch(error => next(error));
 };
 
+passwordController.getPassword = (req, res, next) => {
+  console.log('at get password controller');
+  pg.query(
+    `SELECT * FROM ${tables.primary} WHERE pwid = ${req.params.id};`
+  )
+  .then(response =>{
+    res.locals.passwords = response.rows;
+    return next();
+  })
+  .catch(error => next(error));
+}
+
 
 
 
