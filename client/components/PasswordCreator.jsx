@@ -3,7 +3,7 @@ import React from 'react';
 const PasswordCreator = (props) => (
   <div>
     <div>
-      <form onSubmit={console.log('hello')}>
+      <form onSubmit={props.createPassword}>
       <h3>Create Password</h3>
       <div>
         <label>pwid</label>
