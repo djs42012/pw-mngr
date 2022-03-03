@@ -1,21 +1,10 @@
 const pg = require  ('../models/passwordModels.js')
 const tables = require('../constants/tableNames');
 
-const passwordController = {
-  newPassword : {
-    pwid: 1,
-    account: 'serviceName',
-    username: 'address@TLD',
-    alias: 'alias',
-    password: 'password',
-    uri: 'uri',
-    notes: 'notes',
-  },
-};
+const passwordController = {};
 
 passwordController.createPassword = (req, res, next) => {
-    passwordController.newPassword.pwid = Math.floor(Math.random() * 1000);
-    let n = passwordController.newPassword;;
+    let n = req.body;
     pg.query(
       `INSERT INTO ${tables.primary} (pwid, account, username, alias, password, uri, notes) VALUES (${n.pwid}, '${n.account}', '${n.username}', '${n.alias}', '${n.password}', '${n.uri}', '${n.notes}') RETURNING *;`
     )
