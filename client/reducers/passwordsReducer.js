@@ -20,8 +20,15 @@ const passwordsReducer = (state = initialState, action) => {
 
   let passwordList;
   let totalPasswords;
-  let newPassword;
-;
+  let newPassword = {
+    pwid: '',
+    account : '',
+    username: '',
+    alias: '',
+    password: '',
+    uri: '',
+    notes: '',
+  };
 
   switch (action.type) {
     case types.GET_PASSWORDS: {
@@ -36,7 +43,9 @@ const passwordsReducer = (state = initialState, action) => {
     };
     case types.UPDATE_NEW_PASSWORD: {
       console.log('at update new password switch case')
-      newPassword[payload[0]] = payload[1];
+      console.log(action.payload);
+      const newPassword = Object.assign({}, state.newPassword);
+      newPassword[action.payload[0]] = action.payload[1];
       return{
         ...state,
         newPassword,

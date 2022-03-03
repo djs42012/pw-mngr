@@ -27,7 +27,7 @@ const mapDispatchToProps = dispatch => ({
       />
       <PasswordCreator
         newPassword={props.newPassword}
-        updateNewEntry={props.updateNewEntry}
+        updateNewPassword={props.updateNewPassword}
         createPassword={props.createPassword}
       />
       <PasswordsDisplay 

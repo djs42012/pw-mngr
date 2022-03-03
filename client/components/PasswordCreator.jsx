@@ -21,7 +21,7 @@ const PasswordCreator = (props) => (
             id="new-account"
             placeholder="required"
             onChange={(e) => {
-              props.newPassword.account = e.target.value;
+              props.updateNewPassword(['account', e.target.value]);
             }}
           />
       </div>
@@ -31,7 +31,7 @@ const PasswordCreator = (props) => (
             id="new-username"
             placeholder="required"
             onChange={(e) => {
-              props.newPassword.username = e.target.value;
+              props.updateNewPassword(['username', e.target.value]);
             }}
           />
       </div>
@@ -41,7 +41,7 @@ const PasswordCreator = (props) => (
             id="new-alias"
             placeholder=""
             onChange={(e) => {
-              props.newPassword.alias = e.target.value;
+              props.updateNewPassword(['alias', e.target.value]);
             }}
           />
       </div>
@@ -51,7 +51,7 @@ const PasswordCreator = (props) => (
             id="new-password"
             placeholder="required"
             onChange={(e) => {
-              props.newPassword.password = e.target.value;
+              props.updateNewPassword(['password', e.target.value]);
             }}
           />
       </div>
@@ -61,7 +61,7 @@ const PasswordCreator = (props) => (
             id="new-uri"
             placeholder=""
             onChange={(e) => {
-              props.newPassword.uri = e.target.value;
+              props.updateNewPassword(['uri', e.target.value]);
             }}
           />
       </div>
@@ -71,7 +71,7 @@ const PasswordCreator = (props) => (
             id="new-notes"
             placeholder=""
             onChange={(e) => {
-              props.newPassword.notes = e.target.value;
+              props.updateNewPassword(['notes', e.target.value]);
             }}
           />
       </div>
