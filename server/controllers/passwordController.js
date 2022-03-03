@@ -17,7 +17,7 @@ passwordController.createPassword = (req, res, next) => {
     passwordController.newPassword.pwid = Math.floor(Math.random() * 1000);
     let n = passwordController.newPassword;;
     pg.query(
-      `INSERT INTO passwords (pwid, account, username, alias, password, uri, notes) VALUES (${n.pwid}, '${n.account}', '${n.username}', '${n.alias}', '${n.password}', '${n.uri}', '${n.notes}') RETURNING *;`
+      `INSERT INTO ${tables.primary} (pwid, account, username, alias, password, uri, notes) VALUES (${n.pwid}, '${n.account}', '${n.username}', '${n.alias}', '${n.password}', '${n.uri}', '${n.notes}') RETURNING *;`
     )
     .then(response => {
         res.locals.passwords = response.rows;
@@ -39,8 +39,16 @@ passwordController.getPasswords = (req, res, next) => {
 }
 
 passwordController.deletePassword = (req, res, next) => {
-
-}
+  console.log('at delete password controller')
+  pg.query(
+    `DELETE FROM ${tables.primary} WHERE pwid = ${req.params.id} RETURNING *;`
+    )
+  .then(response => {
+    res.locals.passwords = response.rows;
+    return next();
+  })
+  .catch(error => next(error));
+};
 
 
 

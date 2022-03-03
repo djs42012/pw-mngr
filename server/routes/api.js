@@ -19,8 +19,9 @@ router.get('/passwords', passwordController.getPasswords, (rew,res) => {
     return res.status(200).json(res.locals.passwords);
 });
 
-router.delete('passwords', passwordController.deletePassword, (req, res) => {
-
+router.delete('/:id', passwordController.deletePassword, (req, res) => {
+    console.log('at delete password router');
+    return res.status(200).json(res.locals.passwords);
 })
 
 module.exports = router;
