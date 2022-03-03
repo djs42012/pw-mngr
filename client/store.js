@@ -7,6 +7,6 @@ const store = createStore(
   reducers,
   composeWithDevTools(),
 );
-store.dispatch(loadPasswords());
-
+console.log('loading passwords fro')
+loadPasswords();
 export default store;

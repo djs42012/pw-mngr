@@ -1,18 +1,18 @@
 import * as types from '../constants/actionTypes';
 
-export const loadPasswords = passwords => ({
-  type: types.GET_PASSWORDS,
-  payload: passwords,
-});
-/* -------------------------- can also take form of ------------------------- */
-// export const actionCreator2 = payload => (dispatch, getState) => {
-//   if (getState().someStateData === 'some condition') {
-//     dispatch(
-//       { 
-//         type: types.ACTION_TYPE2, 
-//         payload: payload,
-//       }
-//     );
-//   }
-// };
 
+export const loadPasswords = dispatch => {
+  console.log('at load passwords action')
+  fetch('http://localhost:3003/api/passwords',{
+    method: 'GET',
+  })
+  .then(res => res.json())
+  .then(passwords => {
+    console.log(passwords);
+    dispatch({
+      type: types.GET_PASSWORDS,
+      payload: passwords,
+    })
+  })
+  .catch(error => console.log(error));
+};

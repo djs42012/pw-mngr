@@ -4,26 +4,30 @@ const initialState = {
   totalPasswords: 0,
   lastPasswordId: 0,
   passwordList: [],
-  };
-  
-  const passwordsReducer = (state = initialState, action) => {
-    let passwordList;
-  
-    switch (action.type) {
-      case types.GET_PASSWORDS: {
-        fetch('/passwords',{
-          method: 'GET',
-        })
-        .then(res => passwordList = res)
-        return {
-          ...state,
-          passwordList,
-        };
+};
+
+const passwordsReducer = (state = initialState, action) => {
+  console.log('at passwords reducer');
+
+  let passwordList;
+  let totalPasswords;
+  console.log(action);
+
+  switch (action.type) {
+    case types.GET_PASSWORDS: {
+      console.log('here');
+      passwordList = action.payload;
+      totalPasswords = action.payload.length;
+      return {
+        ...state,
+        totalPasswords,
+        passwordList,
       };
-      default: {
-        return state;
-      }
+    };
+    default: {
+      return state;
     }
-  };
+  }
+};
   
   export default passwordsReducer;

@@ -25,6 +25,7 @@
   "dependencies": {
     "@babel/plugin-transform-async-to-generator": "^7.1.0",
     "@babel/runtime": "^7.1.2",
+    "axios": "^0.26.0",
     "dotenv": "^16.0.0",
     "express": "^4.16.3",
     "node-fetch": "^3.2.0",
