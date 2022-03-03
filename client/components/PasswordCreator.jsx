@@ -3,7 +3,7 @@ import React from 'react';
 const PasswordCreator = (props) => (
   <div>
     <div>
-      <form onSubmit={console.log('you clicked me')}>
+      <form onSubmit={console.log('hello')}>
       <h3>Create Password</h3>
       <div>
         <label>pwid</label>
@@ -11,7 +11,7 @@ const PasswordCreator = (props) => (
             id="new-pwid"
             placeholder="required"
             onChange={(e) => {
-              props.newPassword.pwid = parseInt(e.target.value);
+              props.updateNewPassword(['pwid', parseInt(e.target.value)]);
             }}
           />
       </div>

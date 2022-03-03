@@ -17,11 +17,13 @@ export const loadPasswords = dispatch => {
   .catch(error => console.log(error));
 };
 
-export const createPassword = (dispatch, password) => {
-  console.log('at create password action')
+export const createPassword = event => (dispatch, getState) => {
+  event.preventDefault();
+  console.log('at create password action');
+  const reqBody = JSON.stringify(getState().passwords.newPasword);
   fetch('http://localhost:3003/api/passwords',{
     method: 'POST',
-    body: JSON.stringify(password),
+    body: reqBody,
     headers: { 'Content-Type': 'application/json' }
   })
   .then(res => res.json())
@@ -35,7 +37,7 @@ export const createPassword = (dispatch, password) => {
   .catch(error => console.log(error));
 };
 
-// export const updateNewEntry = newEntry => ({
-//   type: UPDATE_NEW_ENTRY,
-//   payload: newEntry,
-// })
+export const updateNewPassword = updatedKeyArray => ({
+  type: types.UPDATE_NEW_PASSWORD,
+  payload: updatedKeyArray,
+})

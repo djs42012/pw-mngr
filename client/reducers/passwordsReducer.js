@@ -34,11 +34,19 @@ const passwordsReducer = (state = initialState, action) => {
         passwordList,
       };
     };
+    case types.UPDATE_NEW_PASSWORD: {
+      console.log('at update new password switch case')
+      newPassword[payload[0]] = payload[1];
+      return{
+        ...state,
+        newPassword,
+      }
+    }
     case types.CREATE_PASSWORD: {
       console.log('at create password switch case');
       passwordList = state.passwordList.slice();
-      passwordList.push(action.payload);
-      totalPasswords = state.totalPasswords ++;
+      passwordList.push (action.payload);
+      totalPasswords = passwordList.length;
       newPassword = {
         pwid: '',
         account : '',
