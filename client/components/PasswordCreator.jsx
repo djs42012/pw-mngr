@@ -1,9 +1,8 @@
 import React from 'react';
-//import LabeledText from './LabeledText.jsx';
 const PasswordCreator = (props) => (
   <div>
     <div>
-      <form onSubmit={props.createPassword}>
+      <form onSubmit={() => {props.createPassword(props.newPassword)}}>
       <h3>Create Password</h3>
       <div>
         <label>pwid</label>
@@ -11,6 +10,7 @@ const PasswordCreator = (props) => (
             id="new-pwid"
             placeholder="required"
             onChange={(e) => {
+              console.log('props.newPassword',props.newPassword)
               props.updateNewPassword(['pwid', parseInt(e.target.value)]);
             }}
           />

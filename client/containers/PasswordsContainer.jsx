@@ -14,9 +14,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   loadPasswords : () => actions.loadPasswords(dispatch),
   updateNewPassword: (updateKeyArray) => {dispatch(actions.updateNewPassword(updateKeyArray))},
-  createPassword: () => actions.createPassword(dispatch, getState),
-
-});
+  createPassword: (password) => {actions.createPassword(dispatch, password)}
+  });
 
  const PasswordsContainer = (props) => (
    <div className="innerbox">
