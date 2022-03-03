@@ -25,6 +25,7 @@ const passwordsReducer = (state = initialState, action) => {
       };
     };
     default: {
+      console.log('returning default state')
       return state;
     }
   }

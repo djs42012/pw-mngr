@@ -1,21 +1,23 @@
 import React from 'react';
+//import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import LabeledText from './LabeledText.jsx';
+import * as actions from '../actions/actions';
 
-const mapStateToProps = state => (
-  {
-    totalPasswords: state.passwords.totalPasswords,
-  }
-)
+
+// useEffect(() => {
+//   actions.loadPasswords()
+// }, []);
+
 
 const TotalsDisplay = (props) => (
   <div className="innerbox" id="totals">
     <h3>Totals Display</h3>
     <div>
-      <LabeledText label="Total of Prop 1" text={props.totalPasswords}/>
+      <LabeledText label="Total Passwords" text={props.totalPasswords}/>
     </div>
-    <button id='sync' className="secondary">Action</button>
+    <button id='sync' className="secondary" onClick={props.loadPasswords}>Load Passwords</button>
   </div>
 );
 
-export default connect(mapStateToProps, null)(TotalsDisplay);
+export default TotalsDisplay;

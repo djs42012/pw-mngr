@@ -10,7 +10,6 @@ import PasswordsContainer from './PasswordsContainer.jsx';
    <div className="mainContainer">
      <h2>Main Container</h2>
      <div className="outerBox">
-       <TotalsDisplay />
        <PasswordsContainer />
      </div>
    </div>
