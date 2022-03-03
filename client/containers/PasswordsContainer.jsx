@@ -7,7 +7,7 @@
  
 const mapStateToProps = state => ({
   totalPasswords: state.passwords.totalPasswords,
-  passwordsList: state.passwords.passwordsList,
+  passwordList: state.passwords.passwordList,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -19,7 +19,7 @@ loadPasswords : () => actions.loadPasswords(dispatch),
      <div>
       <TotalsDisplay totalPasswords={props.totalPasswords} loadPasswords={props.loadPasswords} />
       <PasswordCreator/>
-      <PasswordsDisplay/>
+      <PasswordsDisplay passwordList={props.passwordList}/>
      </div>
    </div>
  );
