@@ -8,8 +8,8 @@ import PasswordsContainer from './PasswordsContainer.jsx';
  
  const MainContainer = () => (
    <div className="mainContainer">
-     <h2>Main Container</h2>
      <div className="outerBox">
+       <h1>pw-mngr</h1>
        <PasswordsContainer />
      </div>
    </div>

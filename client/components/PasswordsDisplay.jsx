@@ -4,7 +4,7 @@ import Password from './Password.jsx';
 
 const PasswordsDisplay = props => (
   <div className="displayBox">
-    <h4>Passwords Display</h4>
+    <h3>All Passwords</h3>
     <div className="allPasswords">
       <Password/>
     </div>

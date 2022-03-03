@@ -16,7 +16,6 @@ loadPasswords : () => actions.loadPasswords(dispatch),
 
  const PasswordsContainer = (props) => (
    <div className="innerbox">
-     <h3>Passwords Container</h3>
      <div>
       <TotalsDisplay totalPasswords={props.totalPasswords} loadPasswords={props.loadPasswords} />
       <PasswordCreator/>
