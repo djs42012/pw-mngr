@@ -22,6 +22,11 @@ router.get('/passwords', passwordController.getPasswords, (rew,res) => {
 router.delete('/:id', passwordController.deletePassword, (req, res) => {
     console.log('at delete password router');
     return res.status(200).json(res.locals.passwords);
-})
+});
+
+router.put('/:id', passwordController.updatePassword, (req, res) => {
+    console.log('at update password router');
+    return res.status(200).json(res.locals.passwords);
+});
 
 module.exports = router;

@@ -13,7 +13,7 @@ passwordController.createPassword = (req, res, next) => {
         return next();
       })
     .catch(error => next(error));
-  };
+};
 
 passwordController.getPasswords = (req, res, next) => {
   pg.query(
@@ -38,6 +38,20 @@ passwordController.deletePassword = (req, res, next) => {
   })
   .catch(error => next(error));
 };
+
+passwordController.updatePassword = (req, res, next) => {
+  console.log('at update password controller')
+  let n = req.body;
+  pg.query(
+    `UPDATE ${tables.primary} SET pwid = ${n.pwid}, account = '${n.account}', username = '${n.username}', alias = '${n.alias}', password = '${n.password}', uri = '${n.uri}', notes = '${n.notes}' WHERE pwid = ${req.params.id} RETURNING *;`
+    )
+  .then(response => {
+    res.locals.passwords = response.rows;
+    return next();
+  })
+  .catch(error => next(error));
+};
+
 
 
 
