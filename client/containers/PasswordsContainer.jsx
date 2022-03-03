@@ -13,7 +13,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   loadPasswords : () => actions.loadPasswords(dispatch),
-  updateNewEntry: (newEntry) => {dispatch(actions.updateNewEntry(newEntry))},
+  //updateNewEntry: (newEntry) => {dispatch(actions.updateNewEntry(newEntry))},
   createPassword: (password) => actions.createPassword(dispatch,password),
 
 });

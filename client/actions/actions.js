@@ -35,7 +35,7 @@ export const createPassword = (dispatch, password) => {
   .catch(error => console.log(error));
 };
 
-export const updateNewEntry = newEntry => ({
-  type: UPDATE_NEW_ENTRY,
-  payload: newEntry,
-})
+// export const updateNewEntry = newEntry => ({
+//   type: UPDATE_NEW_ENTRY,
+//   payload: newEntry,
+// })
