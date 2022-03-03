@@ -8,18 +8,30 @@
 const mapStateToProps = state => ({
   totalPasswords: state.passwords.totalPasswords,
   passwordList: state.passwords.passwordList,
+  newPassword: state.passwords.newPassword,
 });
 
 const mapDispatchToProps = dispatch => ({
-loadPasswords : () => actions.loadPasswords(dispatch),
+  loadPasswords : () => actions.loadPasswords(dispatch),
+  updateNewEntry: (newEntry) => {dispatch(actions.updateNewEntry(newEntry))},
+  createPassword: (password) => actions.createPassword(dispatch,password),
+
 });
 
  const PasswordsContainer = (props) => (
    <div className="innerbox">
      <div>
-      <TotalsDisplay totalPasswords={props.totalPasswords} loadPasswords={props.loadPasswords} />
-      <PasswordCreator/>
-      <PasswordsDisplay passwordList={props.passwordList}/>
+      <TotalsDisplay 
+        totalPasswords={props.totalPasswords} 
+        loadPasswords={props.loadPasswords} 
+      />
+      <PasswordCreator
+        newPassword={props.newPassword}
+        updateNewEntry={props.updateNewEntry}
+        createPassword={props.createPassword}
+      />
+      <PasswordsDisplay 
+        passwordList={props.passwordList}/>
      </div>
    </div>
  );

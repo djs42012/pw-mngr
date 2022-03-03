@@ -1,12 +1,14 @@
 import React from 'react';
-
-const PasswordCreator = () => (
+//import LabeledText from './LabeledText.jsx';
+const PasswordCreator = (props) => (
   <div>
     <div>
       <form onSubmit={console.log('you clicked me')}>
+      <h3>Password</h3>
         <input
-          id="value-1"
-          onChange={e => action1(e.target.value)}
+          id="new-pwid"
+          placeholder="required"
+          value={props.newPassword.pwid}
         />
         <button id='action-2' className="primary" type="submit">Save Password</button>
       </form>
