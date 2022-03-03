@@ -75,7 +75,7 @@ const PasswordCreator = (props) => (
             }}
           />
       </div>
-        <button id='action-2' className="primary" type="submit">Save Password</button>
+        <button id='save-new-password' className="primary" type="submit">Save Password</button>
       </form>
     </div>
   </div>
