@@ -1,9 +1,8 @@
 import * as types from '../constants/actionTypes.js';
 
 const initialState = {
-  totalPasswords: 0,
-  lastPasswordId: 0,
   passwordList: [],
+  totalPasswords: 0,
   newPassword: {
     pwid: '',
     account : '',
@@ -20,15 +19,7 @@ const passwordsReducer = (state = initialState, action) => {
 
   let passwordList;
   let totalPasswords;
-  let newPassword = {
-    pwid: '',
-    account : '',
-    username: '',
-    alias: '',
-    password: '',
-    uri: '',
-    notes: '',
-  };
+  let newPassword;
 
   switch (action.type) {
     case types.GET_PASSWORDS: {
@@ -44,9 +35,9 @@ const passwordsReducer = (state = initialState, action) => {
     case types.UPDATE_NEW_PASSWORD: {
       console.log('at update new password switch case')
       console.log('payload', action.payload);
-      const newPassword = Object.assign({}, state.newPassword);
+      newPassword = Object.assign({}, state.newPassword);
       newPassword[action.payload[0]] = action.payload[1];
-      console.log('newPassword', newPassword)
+      console.log('newPasswordVariable', newPassword)
       return{
         ...state,
         newPassword,
@@ -68,8 +59,8 @@ const passwordsReducer = (state = initialState, action) => {
       }
       return {
         ...state,
-        totalPasswords,
         passwordList,
+        totalPasswords,
         newPassword,
       }
     };
